@@ -9,18 +9,31 @@
         <script src="js/fruit_and_veggies_test.js"></script>
         <script src="js/app.js"></script>
     </head>
-    <body>
-        <div class="container">
+    <body ng-app='FruitsAndVeggies'>
+        <div class="container text-center" ng-controller='FruitAndVegCtrl' ng-class="{'winner': amISorted}">
             <h1>Fruit and Veggies</h1>
+            <h2 ng-show="allRight">Win</h2>
             <div class="row">
                 <div class="col-sm-4">
-                    col 1
+                    <h1>Fruits</h1>
+                    <div class='well' ng-repeat="fruit in fruits track by $index" ng-class="{'warning': 
+                    isFruitMethod(fruit)}">
+                        <p class='btn btn-warning' ng-show="!allRight" ng-click='moveFruitCenter($index)'>Center</p>
+                    </div>
                 </div>
                 <div class="col-sm-4">
-                    col 2
+                    <h1>Pool</h1>
+                    <div class='well' ng-repeat="item in pool track by $index">
+                        <p class='btn btn-primary' ng-click="addFruit($index)">Left</p>
+                            {{item}}
+                        <p class='btn btn-primary' ng-click="addVeg($index)">Right</p>
+                    </div>
                 </div>
                 <div class="col-sm-4">
-                    col 3
+                    <h1>Veggies</h1>
+                    <div class='well text-center' ng-repeat="veg in veggies track by $index" ng-class="{'warning': isVegMethod(veg)}">
+                        <p class='btn btn-warning' ng-show="!allRight" ng-click='moveVegCenter($index)'>Center</p>
+                    </div>
                 </div>                        
             </div>
         </div>
