@@ -18,6 +18,7 @@
                     <h1>Fruits</h1>
                     <div class='well' ng-repeat="fruit in fruits track by $index" ng-class="{'warning': 
                     isFruitMethod(fruit)}">
+                        {{ fruit }}
                         <p class='btn btn-warning' ng-show="!allRight" ng-click='moveFruitCenter($index)'>Center</p>
                     </div>
                 </div>
@@ -32,6 +33,7 @@
                 <div class="col-sm-4">
                     <h1>Veggies</h1>
                     <div class='well text-center' ng-repeat="veg in veggies track by $index" ng-class="{'warning': isVegMethod(veg)}">
+                        {{ veg }}
                         <p class='btn btn-warning' ng-show="!allRight" ng-click='moveVegCenter($index)'>Center</p>
                     </div>
                 </div>                        
